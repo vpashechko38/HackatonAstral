@@ -8,6 +8,6 @@ namespace Hakaton.Data.Repository
     public interface IServiceRepository
     {
         Task<List<Service>> GetService(Category category);
-        bool Update(Service service);
+        Task<Service> Update(Service service);
     }
 }

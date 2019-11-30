@@ -8,6 +8,6 @@ namespace Hakaton.Domain.Storage
     public interface IServiceStorage
     {
         Task<List<Service>> GetService(Category category);
-        bool UpdateService(Service service);
+        Task<Service> UpdateService(Service service);
     }
 }
