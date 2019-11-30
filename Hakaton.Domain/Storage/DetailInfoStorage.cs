@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hakaton.Domain.Storage
 {
-    public class DetailInfoStorage
+    public class DetailInfoStorage : IDetailInfoStorage
     {
         private readonly IDetailIntoRepository _detailInfoRepository;
         public DetailInfoStorage(IDetailIntoRepository detailIntoRepository)

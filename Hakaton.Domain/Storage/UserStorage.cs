@@ -13,28 +13,46 @@ namespace Hakaton.Domain.Storage
         private readonly IUserRepository _userRepo;
         private readonly DataContext _context;
 
-        public UserStorage(IUserRepository userRepo)
+        public UserStorage(IUserRepository userRepo, DataContext context)
         {
             _userRepo = userRepo;
+            _context = context;
         }
 
-        public void Add(RegistrationVM userVm)
+        public bool Add(RegistrationVM userVm)
         {
-            var user = new User
+            try
             {
-                Login = userVm.Login,
-                Password = userVm.Password,
-                Name = userVm.Name,
-                Email = userVm.Email     
-            };
+                var user = new User
+                {
+                    Login = userVm.Login,
+                    Password = userVm.Password,
+                    Name = userVm.Name,
+                    Email = userVm.Email
+                };
 
-            _userRepo.Add(user);
-            _context.SaveChanges();
+                _userRepo.Add(user);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+            return true;
         }
 
         public User Get(string login, string password)
         {
             var user = _userRepo.Get(login, password);
+
+            return user;
+        }
+
+        public User Get(string token)
+        {
+            var user = _userRepo.Get(token);
 
             return user;
         }

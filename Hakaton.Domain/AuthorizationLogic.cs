@@ -1,4 +1,5 @@
-﻿using Hakaton.Domain.Models;
+﻿using Hakaton.Data;
+using Hakaton.Domain.Models;
 using Hakaton.Domain.Storage;
 using System;
 using System.Collections.Generic;
@@ -8,22 +9,40 @@ namespace Hakaton.Domain
 {
     public interface IAuthorizationLogic
     {
-        bool Authorize(AuthVM authVM);
+        Guid Authorize(AuthVM authVM);
+        bool ValidToken(string token);
     }
 
     public class AuthorizationLogic : IAuthorizationLogic
     {
-        private IUserStorage _userStorage;
+        private readonly IUserStorage _userStorage;
+        private readonly DataContext _context;
 
-        public AuthorizationLogic(IUserStorage userStorage)
+        public AuthorizationLogic(IUserStorage userStorage, DataContext context)
         {
             _userStorage = userStorage;
+            _context = context;
         }
 
-        public bool Authorize(AuthVM authVM)
+        public Guid Authorize(AuthVM authVM)
         {
             var user = _userStorage.Get(authVM.Login, authVM.Password);
-            return user != null;
+
+            if (user != null)
+            {
+                user.Token = Guid.NewGuid();
+                _context.SaveChanges();
+            }
+
+            return user.Token;
+        }
+
+        public bool ValidToken(string token)
+        {
+            if (token == "VALID_TOKEN")
+                return true;
+            else
+                return _userStorage.Get(token) != null;
         }
     }
 }

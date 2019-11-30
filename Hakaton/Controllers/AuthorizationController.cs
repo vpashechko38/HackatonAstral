@@ -24,15 +24,30 @@ namespace Hakaton.App.Controllers
         }
 
         [HttpPost("Registration")]
-        public void Registration([FromBody]RegistrationVM registrationVM)
+        public bool Registration([FromBody]RegistrationVM registrationVM)
         {
-            _userStorage.Add(registrationVM);
+            return _userStorage.Add(registrationVM);
         }
 
         [HttpGet]
-        public bool Authenticate([FromBody]AuthVM authVM)
+        public JsonResult Authenticate([FromBody]AuthVM authVM)
         {
-            return _auth.Authorize(authVM);
+            var token = _auth.Authorize(authVM);
+
+            if (token == Guid.Empty || token == null)
+            {
+                return new JsonResult("")
+                {
+                    StatusCode = 403,
+                    Value = "Требуется авторизация"
+                };
+            }
+
+            return new JsonResult("")
+            {
+                StatusCode = 200,
+                Value = token
+            };
         }
     }
 }
