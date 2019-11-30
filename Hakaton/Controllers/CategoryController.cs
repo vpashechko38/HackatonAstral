@@ -19,7 +19,7 @@ namespace Hakaton.App.Controllers
             _serviceStorage = serviceStorage;
         }
 
-        [Route("Get")]
+        [HttpGet]
         public async Task<List<Service>> GetServices([FromQuery]Category category)
         {
             return await _serviceStorage.GetService(category);
