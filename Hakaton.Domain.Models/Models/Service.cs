@@ -14,6 +14,8 @@ namespace Hakaton.Domain.Models.Models
 
         public int ServiceId { get; set; }
 
+        public int UserId { get; set; }
+
         public Category Category { get; set; }
 
         public string Name { get; set; }
