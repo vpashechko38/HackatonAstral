@@ -30,7 +30,7 @@ namespace Hakaton.App.Controllers
         }
 
         [Route("Update")]
-        [HttpGet]
+        [HttpPost]
         public async Task<Service> UpdateServices([FromQuery]Service service)
         {
             return await _serviceStorage.UpdateService(service);
