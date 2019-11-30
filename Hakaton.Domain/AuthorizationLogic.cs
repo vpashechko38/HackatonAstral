@@ -34,7 +34,7 @@ namespace Hakaton.Domain
                 _context.SaveChanges();
             }
 
-            return user.Token;
+            return user.Token != null ? user.Token : Guid.Empty;
         }
 
         public bool ValidToken(string token)

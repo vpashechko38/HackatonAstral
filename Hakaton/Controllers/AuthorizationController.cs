@@ -29,7 +29,7 @@ namespace Hakaton.App.Controllers
             return _userStorage.Add(registrationVM);
         }
 
-        [HttpGet]
+        [HttpPost]
         public JsonResult Authenticate([FromBody]AuthVM authVM)
         {
             var token = _auth.Authorize(authVM);
