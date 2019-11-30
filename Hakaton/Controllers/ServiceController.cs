@@ -27,6 +27,7 @@ namespace Hakaton.App.Controllers
         }
 
         [Route("Update")]
+        [HttpGet]
         public bool UpdateServices([FromQuery]Service service)
         {
             return _serviceStorage.UpdateService(service);
