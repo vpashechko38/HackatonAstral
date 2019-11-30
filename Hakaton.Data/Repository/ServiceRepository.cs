@@ -31,5 +31,10 @@ namespace Hakaton.Data.Repository
 
             return service;
         }
+        public void Delete(Service service)
+        {
+            _context.Services.Remove(service);
+            _context.SaveChanges();
+        }
     }
 }

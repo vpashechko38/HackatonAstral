@@ -32,5 +32,11 @@ namespace Hakaton.App.Controllers
         {
             return await _serviceStorage.UpdateService(service);
         }
+        [Route("Delete")]
+        [HttpDelete]
+        public void DeleteServices([FromQuery] Service service)
+        {
+            _serviceStorage.Delete(service);
+        }
     }
 }
