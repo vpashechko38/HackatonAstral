@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Hakaton.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191130103057_RepairModel")]
+    [Migration("20191130103912_RepairModel")]
     partial class RepairModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
