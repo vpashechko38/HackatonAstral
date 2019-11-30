@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hakaton.Domain.Storage
 {
-    public class ServiceStorage
+    public class ServiceStorage : IServiceStorage
     {
         private readonly IServiceRepository _serviceRepository;
         public ServiceStorage(IServiceRepository serviceRepository)

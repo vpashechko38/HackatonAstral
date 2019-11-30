@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hakaton.Domain.Models.Enum;
 using Hakaton.Domain.Models.Models;
+using Hakaton.Domain.Storage;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hakaton.App.Controllers
@@ -11,11 +13,16 @@ namespace Hakaton.App.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        //[Route("Get")]
-        //public async Task<Service> GetServices([FromQuery]int category)
-        //{
+        private readonly IServiceStorage _serviceStorage;
+        public CategoryController(IServiceStorage serviceStorage)
+        {
+            _serviceStorage = serviceStorage;
+        }
 
-        //    //return;
-        //}
+        [Route("Get")]
+        public async Task<List<Service>> GetServices([FromQuery]Category category)
+        {
+            return await _serviceStorage.GetService(category);
+        }
     }
 }
