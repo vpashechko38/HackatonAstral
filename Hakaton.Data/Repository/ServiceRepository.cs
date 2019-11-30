@@ -36,5 +36,9 @@ namespace Hakaton.Data.Repository
             _context.Services.Remove(service);
             _context.SaveChanges();
         }
+        public async Task<List<Service>> GetServicesUser(int userId)
+        {
+            return await _context.Services.Where(i => i.UserId == userId).ToListAsync();
+        }
     }
 }

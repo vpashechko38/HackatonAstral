@@ -48,5 +48,11 @@ namespace Hakaton.App.Controllers
         {
             _serviceStorage.Delete(service);
         }
+        [Route("GetServicesUser")]
+        [HttpGet]
+        public async Task<List<Service>> GetServicesUser(int userId)
+        {
+            return await _serviceStorage.GetServicesUser(userId);
+        }
     }
 }
