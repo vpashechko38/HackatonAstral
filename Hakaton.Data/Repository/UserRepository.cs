@@ -30,5 +30,10 @@ namespace Hakaton.Data.Repository
         {
             return _context.Users.SingleOrDefault(u => u.Login.Equals(login) && u.Password.Equals(password));
         }
+
+        public User Get(string token)
+        {
+            return _context.Users.SingleOrDefault(u => u.Token.Equals(token));
+        }
     }
 }

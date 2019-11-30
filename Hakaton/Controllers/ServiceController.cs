@@ -30,7 +30,7 @@ namespace Hakaton.App.Controllers
         }
 
         [Route("Update")]
-        [HttpGet]
+        [HttpPost]
         public async Task<Service> UpdateServices([FromQuery]Service service)
         {
             return await _serviceStorage.UpdateService(service);
@@ -41,6 +41,18 @@ namespace Hakaton.App.Controllers
         public async Task<DetailInfoVm> GetDetailInfo([FromQuery]int serviceId)
         {
             return await _detailInfoStorage.Get(serviceId);
+        }
+        [Route("Delete")]
+        [HttpDelete]
+        public void DeleteServices([FromQuery] Service service)
+        {
+            _serviceStorage.Delete(service);
+        }
+        [Route("GetServicesUser")]
+        [HttpGet]
+        public async Task<List<Service>> GetServicesUser(int userId)
+        {
+            return await _serviceStorage.GetServicesUser(userId);
         }
     }
 }

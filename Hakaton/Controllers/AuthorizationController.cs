@@ -29,10 +29,25 @@ namespace Hakaton.App.Controllers
             return _userStorage.Add(registrationVM);
         }
 
-        [HttpGet]
-        public Guid Authenticate([FromBody]AuthVM authVM)
+        [HttpPost]
+        public JsonResult Authenticate([FromBody]AuthVM authVM)
         {
-            return _auth.Authorize(authVM);
+            var token = _auth.Authorize(authVM);
+
+            if (token == Guid.Empty || token == null)
+            {
+                return new JsonResult("")
+                {
+                    StatusCode = 403,
+                    Value = "Неверный логин или пароль."
+                };
+            }
+
+            return new JsonResult("")
+            {
+                StatusCode = 200,
+                Value = token
+            };
         }
     }
 }

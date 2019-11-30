@@ -9,5 +9,7 @@ namespace Hakaton.Domain.Storage
     {
         Task<List<Service>> GetService(Category category);
         Task<Service> UpdateService(Service service);
+        void Delete(Service service);
+        Task<List<Service>> GetServicesUser(int userId);
     }
 }

@@ -9,5 +9,7 @@ namespace Hakaton.Data.Repository
     {
         Task<List<Service>> GetService(Category category);
         Task<Service> Update(Service service);
+        void Delete(Service service);
+        Task<List<Service>> GetServicesUser(int userId);
     }
 }

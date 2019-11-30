@@ -23,5 +23,13 @@ namespace Hakaton.Domain.Storage
         {
             return await _serviceRepository.Update(service);
         }
+        public void Delete(Service service)
+        {
+            _serviceRepository.Delete(service);
+        }
+        public async Task<List<Service>> GetServicesUser(int userId)
+        {
+            return await _serviceRepository.GetServicesUser(userId);
+        }
     }
 }

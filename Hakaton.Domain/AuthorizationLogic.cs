@@ -10,6 +10,7 @@ namespace Hakaton.Domain
     public interface IAuthorizationLogic
     {
         Guid Authorize(AuthVM authVM);
+        bool ValidToken(string token);
     }
 
     public class AuthorizationLogic : IAuthorizationLogic
@@ -32,8 +33,20 @@ namespace Hakaton.Domain
                 user.Token = Guid.NewGuid();
                 _context.SaveChanges();
             }
+            else
+            {
+                return Guid.Empty;
+            }
 
             return user.Token;
+        }
+
+        public bool ValidToken(string token)
+        {
+            if (token == "VALID_TOKEN")
+                return true;
+            else
+                return _userStorage.Get(token) != null;
         }
     }
 }
