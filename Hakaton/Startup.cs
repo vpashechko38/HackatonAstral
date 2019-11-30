@@ -1,5 +1,9 @@
 ﻿using System;
 using Hakaton.Data;
+using Hakaton.Data.Interface;
+using Hakaton.Data.Repository;
+using Hakaton.Domain;
+using Hakaton.Domain.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +37,13 @@ namespace Hakaton
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddScoped<IUserStorage, UserStorage>();
+
+            services.AddScoped<IAuthorizationLogic, AuthorizationLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
