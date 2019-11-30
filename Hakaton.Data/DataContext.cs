@@ -27,6 +27,12 @@ namespace Hakaton.Data
                 user.HasIndex(u => u.Login).IsUnique();
                 user.HasIndex(u => u.Email).IsUnique();
             });
+
+            modelBuilder.Entity<PathPhoto>(photo =>
+            {
+                photo.HasKey(p => p.PhotoId);
+                photo.Property(p => p.PhotoId).ValueGeneratedOnAdd();
+            });
         }
     }
 }
