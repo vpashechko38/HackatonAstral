@@ -23,7 +23,7 @@ namespace Hakaton.App.Controllers
             _auth = auth;
         }
 
-        [HttpPost]
+        [HttpPost("Registration")]
         public void Registration([FromBody]RegistrationVM registrationVM)
         {
             _userStorage.Add(registrationVM);
