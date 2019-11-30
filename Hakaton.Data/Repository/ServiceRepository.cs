@@ -20,5 +20,16 @@ namespace Hakaton.Data.Repository
         {
             return await _context.Services.Where(s => s.Category == category).ToListAsync();
         }
+
+        public async Task<Service> Update(Service service)
+        {
+            var serviceOld = _context.Services.Where(s => s.ServiceId == service.ServiceId).FirstOrDefault();
+
+            serviceOld = service;
+
+            _context.SaveChanges();
+
+            return service;
+        }
     }
 }

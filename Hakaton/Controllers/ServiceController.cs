@@ -1,25 +1,36 @@
-﻿using Hakaton.Domain.Models.ViewModel;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hakaton.Domain.Models.Enum;
+using Hakaton.Domain.Models.Models;
+using Hakaton.Domain.Storage;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Hakaton.App.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class ServiceController: ControllerBase
-    {        
-        public ServiceController()
+    public class ServiceController : ControllerBase
+    {
+        private readonly IServiceStorage _serviceStorage;
+        public ServiceController(IServiceStorage serviceStorage)
         {
-
+            _serviceStorage = serviceStorage;
         }
 
-        [Route("get")]
-        public async Task<DetailInfoVm> GetDetailInfo(int serviceId)
+        [Route("Get")]
+        [HttpGet]
+        public async Task<List<Service>> GetServices([FromQuery]Category category)
         {
+            return await _serviceStorage.GetService(category);
+        }
 
+        [Route("Update")]
+        [HttpGet]
+        public bool UpdateServices([FromQuery]Service service)
+        {
+            return _serviceStorage.UpdateService(service);
         }
     }
 }
