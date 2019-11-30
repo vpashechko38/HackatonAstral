@@ -28,7 +28,8 @@ namespace Hakaton.Data
             Address = "test",
             Category = Domain.Models.Enum.Category.IT,
             Description = "testtest",
-            Name = "Repair"
+            Name = "Repair",
+            UserId = 1
         };
 
         PathPhoto photo1 = new PathPhoto
