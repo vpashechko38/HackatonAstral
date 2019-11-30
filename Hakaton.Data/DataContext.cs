@@ -16,6 +16,11 @@ namespace Hakaton.Data
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+        }
         
     }
 }
