@@ -15,6 +15,9 @@ namespace Hakaton.Domain.Storage
             _detailInfoRepository = detailIntoRepository;
         }
 
-        public async Task<DetailInfoVm> 
+        public async Task<DetailInfoVm> Get(int serviceId)
+        {
+            return await _detailInfoRepository.Get(serviceId);
+        } 
     }
 }

@@ -10,7 +10,7 @@ namespace Hakaton.App.Controllers
     [Route("api/[Controller]")]
     [ApiController]
     public class ServiceController: ControllerBase
-    {
+    {        
         public ServiceController()
         {
 
