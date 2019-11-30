@@ -22,5 +22,7 @@ namespace Hakaton.Domain.Models.ViewModel
         public string Address { get; set; }
 
         public List<PathPhoto> pathPhotos { get; set; }
+
+        public string Phone { get; set; }
     }
 }

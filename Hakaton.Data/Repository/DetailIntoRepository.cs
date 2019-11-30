@@ -29,7 +29,8 @@ namespace Hakaton.Data.Repository
                           Address = s.Address,
                           Description = s.Description,
                           Email = u.Email,
-                          Price = s.Price
+                          Price = s.Price,
+                          Phone = u.Phone
                       }).SingleAsync();
             res.pathPhotos = await _context.PathPhotos.Where(p => p.ServiceId == serviceId).ToListAsync();
             return res;

@@ -28,7 +28,8 @@ namespace Hakaton.Domain.Storage
                     Login = userVm.Login,
                     Password = userVm.Password,
                     Name = userVm.Name,
-                    Email = userVm.Email
+                    Email = userVm.Email,
+                    Phone = userVm.Phone
                 };
 
                 _userRepo.Add(user);
