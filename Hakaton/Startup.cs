@@ -95,7 +95,7 @@ namespace Hakaton
         {
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
-                builder.WithOrigins("http://localhost:80", "http://localhost:5000", "http://booking.astralnalog.ru:80")
+                builder.WithOrigins("http://localhost:80", "http://localhost:5000", "http://booking.astralnalog.ru:80", "http://localhost:3000")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
