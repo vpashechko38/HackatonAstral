@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hakaton.Data\Hakaton.Data.csproj" />
+    <ProjectReference Include="..\Hakaton.Domain.Models\Hakaton.Domain.Models.csproj" />
   </ItemGroup>
 
 </Project>
