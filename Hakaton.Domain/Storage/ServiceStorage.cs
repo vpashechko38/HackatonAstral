@@ -19,5 +19,9 @@ namespace Hakaton.Domain.Storage
         {
             return await _serviceRepository.GetService(category);
         }
+        public bool UpdateService(Service service)
+        {
+            return _serviceRepository.Update(service);
+        }
     }
 }
