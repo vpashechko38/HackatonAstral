@@ -9,7 +9,7 @@ namespace Hakaton.Domain
 {
     public interface IAuthorizationLogic
     {
-        Guid Authorize(AuthVM authVM);
+        int Authorize(AuthVM authVM);
         bool ValidToken(string token);
     }
 
@@ -24,21 +24,11 @@ namespace Hakaton.Domain
             _context = context;
         }
 
-        public Guid Authorize(AuthVM authVM)
+        public int Authorize(AuthVM authVM)
         {
-            var user = _userStorage.Get(authVM.Login, authVM.Password);
+            var user = _userStorage.Get(authVM.Login, authVM.Password);        
 
-            if (user != null)
-            {
-                user.Token = Guid.NewGuid();
-                _context.SaveChanges();
-            }
-            else
-            {
-                return Guid.Empty;
-            }
-
-            return user.Token;
+            return user.UserId;
         }
 
         public bool ValidToken(string token)

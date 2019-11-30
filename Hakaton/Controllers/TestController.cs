@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 namespace Hakaton.App.Controllers
 {
     [Route("api/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     public class TestController
     {
-        private readonly DataSeed _dataSeed;
-        public TestController(DataSeed dataSeed)
-        {
-            _dataSeed = dataSeed;
-        }
+        //private readonly DataSeed _dataSeed;
+        //public TestController(DataSeed dataSeed)
+        //{
+        //    _dataSeed = dataSeed;
+        //}
 
-        [HttpGet]
-        public bool TestSeed()
-        {
-            return _dataSeed.AddSeed();
-        }
+        //[HttpGet]
+        //public bool TestSeed()
+        //{
+        //    return _dataSeed.AddSeed();
+        //}
 
     }
 }

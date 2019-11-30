@@ -44,9 +44,6 @@ namespace Hakaton
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<PhotoEditor>();
-
-            services.AddScoped<DataSeed>();
-
             services.AddScoped<IDetailIntoRepository, DetailIntoRepository>();
             services.AddScoped<IDetailInfoStorage, DetailInfoStorage>();
 

@@ -33,9 +33,9 @@ namespace Hakaton.App.Controllers
         [HttpPost]
         public JsonResult Authenticate([FromBody]AuthVM authVM)
         {
-            var token = _auth.Authorize(authVM);
+            var id = _auth.Authorize(authVM);
 
-            if (token == Guid.Empty || token == null)
+            if (id == null)
             {
                 return new JsonResult("")
                 {
@@ -47,7 +47,7 @@ namespace Hakaton.App.Controllers
             return new JsonResult("")
             {
                 StatusCode = 200,
-                Value = JsonConvert.SerializeObject(new { token = token })
+                Value = JsonConvert.SerializeObject(new { id = id })
             };
         }
     }
