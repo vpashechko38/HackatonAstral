@@ -40,5 +40,11 @@ namespace Hakaton.Data.Repository
         {
             return await _context.Services.Where(i => i.UserId == userId).ToListAsync();
         }
+        public async Task<Service> Create(Service service)
+        {
+            await _context.Services.AddAsync(service);
+            await _context.SaveChangesAsync();
+            return service;
+        }
     }
 }

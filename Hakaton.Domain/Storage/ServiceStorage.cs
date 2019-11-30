@@ -31,5 +31,9 @@ namespace Hakaton.Domain.Storage
         {
             return await _serviceRepository.GetServicesUser(userId);
         }
+        public async Task<Service> Create(Service service)
+        {
+            return await _serviceRepository.Create(service);
+        }
     }
 }

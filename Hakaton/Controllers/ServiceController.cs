@@ -31,9 +31,15 @@ namespace Hakaton.App.Controllers
 
         [Route("Update")]
         [HttpPost]
-        public async Task<Service> UpdateServices([FromQuery]Service service)
+        public async Task<Service> UpdateServices([FromBody]Service service)
         {
             return await _serviceStorage.UpdateService(service);
+        }
+        [Route("Create")]
+        [HttpPost]
+        public async Task<Service> Create([FromBody] Service service)
+        {
+            return await _serviceStorage.Create(service);
         }
 
         [Route("GetDetailInfo")]

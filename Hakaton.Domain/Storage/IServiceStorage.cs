@@ -11,5 +11,6 @@ namespace Hakaton.Domain.Storage
         Task<Service> UpdateService(Service service);
         void Delete(Service service);
         Task<List<Service>> GetServicesUser(int userId);
+        Task<Service> Create(Service service);
     }
 }

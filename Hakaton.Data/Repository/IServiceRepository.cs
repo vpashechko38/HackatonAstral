@@ -11,5 +11,6 @@ namespace Hakaton.Data.Repository
         Task<Service> Update(Service service);
         void Delete(Service service);
         Task<List<Service>> GetServicesUser(int userId);
+        Task<Service> Create(Service service);
     }
 }
