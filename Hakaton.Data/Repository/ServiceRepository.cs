@@ -18,7 +18,14 @@ namespace Hakaton.Data.Repository
         }
         public async Task<List<Service>> GetService(Category category)
         {
-            return await _context.Services.Where(s => s.Category == category).ToListAsync();
+            var m = await _context.Services.Where(s => s.Category == category).ToListAsync();
+
+            foreach (var mm in m)
+            {
+                mm.PathPhotos = await _context.PathPhotos.Where(p => p.ServiceId == mm.ServiceId).ToListAsync();
+            }
+
+            return m;
         }
 
         public async Task<Service> Update(Service service)
