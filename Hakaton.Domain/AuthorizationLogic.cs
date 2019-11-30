@@ -33,8 +33,12 @@ namespace Hakaton.Domain
                 user.Token = Guid.NewGuid();
                 _context.SaveChanges();
             }
+            else
+            {
+                return Guid.Empty;
+            }
 
-            return user.Token != null ? user.Token : Guid.Empty;
+            return user.Token;
         }
 
         public bool ValidToken(string token)

@@ -39,7 +39,7 @@ namespace Hakaton.App.Controllers
                 return new JsonResult("")
                 {
                     StatusCode = 403,
-                    Value = "Требуется авторизация"
+                    Value = "Неверный логин или пароль."
                 };
             }
 
