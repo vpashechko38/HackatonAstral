@@ -3,6 +3,7 @@ using Hakaton.Data;
 using Hakaton.Data.Interface;
 using Hakaton.Data.Repository;
 using Hakaton.Domain;
+using Hakaton.Domain.Services;
 using Hakaton.Domain.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,8 @@ namespace Hakaton
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<PhotoEditor>();
 
             services.AddScoped<DataSeed>();
 
