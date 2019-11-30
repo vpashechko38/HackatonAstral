@@ -42,6 +42,9 @@ namespace Hakaton
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddScoped<IDetailIntoRepository, DetailIntoRepository>();
+            services.AddScoped<IDetailInfoStorage, DetailInfoStorage>();
+
             services.AddScoped<IServiceRepository, ServiceRepository>();
 
             services.AddScoped<IServiceStorage, ServiceStorage>();

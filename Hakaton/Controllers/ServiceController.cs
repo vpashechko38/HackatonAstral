@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Hakaton.Domain.Models.Enum;
 using Hakaton.Domain.Models.Models;
+using Hakaton.Domain.Models.ViewModel;
 using Hakaton.Domain.Storage;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,11 @@ namespace Hakaton.App.Controllers
     public class ServiceController : ControllerBase
     {
         private readonly IServiceStorage _serviceStorage;
-        public ServiceController(IServiceStorage serviceStorage)
+        private readonly IDetailInfoStorage _detailInfoStorage;
+        public ServiceController(IServiceStorage serviceStorage, IDetailInfoStorage detailInfoStorage)
         {
             _serviceStorage = serviceStorage;
+            _detailInfoStorage = detailInfoStorage;
         }
 
         [Route("Get")]
@@ -31,6 +34,13 @@ namespace Hakaton.App.Controllers
         public async Task<Service> UpdateServices([FromQuery]Service service)
         {
             return await _serviceStorage.UpdateService(service);
+        }
+
+        [Route("GetDetailInfo")]
+        [HttpGet]
+        public async Task<DetailInfoVm> GetDetailInfo([FromQuery]int serviceId)
+        {
+            return await _detailInfoStorage.Get(serviceId);
         }
     }
 }

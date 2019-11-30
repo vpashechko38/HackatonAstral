@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Hackaton\test3\HackatonAstral\Hakaton\Hakaton.App.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\user\source\repos\HackatonAstral\Hakaton\Hakaton.App.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
