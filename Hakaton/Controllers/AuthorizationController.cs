@@ -7,6 +7,7 @@ using Hakaton.Domain.Models;
 using Hakaton.Domain.Storage;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Hakaton.App.Controllers
 {
@@ -46,7 +47,7 @@ namespace Hakaton.App.Controllers
             return new JsonResult("")
             {
                 StatusCode = 200,
-                Value = token
+                Value = JsonConvert.SerializeObject(new { token = token })
             };
         }
     }
