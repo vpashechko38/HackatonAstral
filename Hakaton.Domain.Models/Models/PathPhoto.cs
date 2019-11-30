@@ -11,5 +11,7 @@ namespace Hakaton.Domain.Models.Models
         public int ServiceId { get; set; }
 
         public string Path { get; set; }
+
+        public Service Service { get; set; }
     }
 }
