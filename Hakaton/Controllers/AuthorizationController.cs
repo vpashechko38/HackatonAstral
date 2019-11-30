@@ -24,13 +24,13 @@ namespace Hakaton.App.Controllers
         }
 
         [HttpPost("Registration")]
-        public void Registration([FromBody]RegistrationVM registrationVM)
+        public bool Registration([FromBody]RegistrationVM registrationVM)
         {
-            _userStorage.Add(registrationVM);
+            return _userStorage.Add(registrationVM);
         }
 
         [HttpGet]
-        public bool Authenticate([FromBody]AuthVM authVM)
+        public Guid Authenticate([FromBody]AuthVM authVM)
         {
             return _auth.Authorize(authVM);
         }

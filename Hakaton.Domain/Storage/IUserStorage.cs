@@ -5,7 +5,7 @@ namespace Hakaton.Domain.Storage
 {
     public interface IUserStorage
     {
-        void Add(RegistrationVM userVm);
+        bool Add(RegistrationVM userVm);
         User Get(string login, string password);
     }
 }
