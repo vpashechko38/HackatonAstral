@@ -49,5 +49,12 @@ namespace Hakaton.Domain.Storage
 
             return user;
         }
+
+        public User Get(string token)
+        {
+            var user = _userRepo.Get(token);
+
+            return user;
+        }
     }
 }

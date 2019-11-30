@@ -7,5 +7,6 @@ namespace Hakaton.Domain.Storage
     {
         bool Add(RegistrationVM userVm);
         User Get(string login, string password);
+        User Get(string token);
     }
 }

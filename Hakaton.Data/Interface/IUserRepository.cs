@@ -9,6 +9,7 @@ namespace Hakaton.Data.Interface
     {
         User Get(int id);
         User Get(string login, string password);
+        User Get(string token);
         void Add(User user);
     }
 }
